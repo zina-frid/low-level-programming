@@ -1,0 +1,4 @@
+all:
+	C:\cygwin64\bin\make.exe -f make_lib
+	riscv64-unknown-elf-gcc -march=rv64iac -mabi=lp64 main.c libMerge.a -o main
+	$(RM) -f *.a *.o
