@@ -1,0 +1,11 @@
+CC=riscv64-unknown-elf-gcc
+AR=riscv64-unknown-elf-ar
+CFLAGS=-march=rv64iac -mabi=lp64
+
+all: lib
+
+lib: merge.o
+		$(AR) -rsc libMerge.a merge.o
+		del -f *.o
+merge.o: merge.c
+		$(CC) $(CFLAGS) -c merge.c -o merge.o
