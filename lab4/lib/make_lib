@@ -1,9 +1,0 @@
-# Чтобы достичь цели "all", требуется построить библиотеку
-all: lib
-
-lib: merge.o
-	riscv64-unknown-elf-ar -rsc libMerge.a merge.o
-	$(RM) -f *.s *.o
-	
-merge.o: merge.c
-	riscv64-unknown-elf-gcc -march=rv64iac -mabi=lp64 -c merge.c -o merge.o
